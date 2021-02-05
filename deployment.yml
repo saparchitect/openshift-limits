@@ -2,8 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: podlist
-  name: podlist
+    app: podlist2
+  name: podlist2
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
@@ -18,17 +18,17 @@ spec:
       labels:
         app: podlist
     spec:
-      serviceAccountName: <my-service-account>
+      serviceAccountName: rjohnson
       containers:
-      - image: allen13/podlist:v0.1.0
+      - image: saparchitect/podlist:v0.1.0
         name: podlist
         resources:
           requests:
             memory: "16Mi"
-            cpu: "200m"
+            cpu: "300m"
           limits:
             memory: "32Mi"
-            cpu: "300m"
+            cpu: "500m"
         volumeMounts:
         - name: varlog
           mountPath: /var/log
